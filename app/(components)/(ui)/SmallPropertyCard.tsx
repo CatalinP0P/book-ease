@@ -19,7 +19,10 @@ export default function SmallPropertyCard({
     return (
         <div
             className="rounded-3xl shadow-xl bg-white overflow-hidden relative cursor-pointer h-full"
-            onClick={() => router.push('/property/' + property._id)}
+            onClick={() => {
+                window.location.href =
+                    window.location.origin + '/property/' + property._id
+            }}
         >
             <div className="relative h-[0] pb-[80%] w-full pointer-events-none">
                 <img
