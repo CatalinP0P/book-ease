@@ -3,5 +3,5 @@ import React from 'react'
 import { getServerSession } from 'next-auth'
 
 export default async function Profile() {
-    return <label>Profile</label>
+    return <div className="border-t-2 border-black/5"></div>
 }
