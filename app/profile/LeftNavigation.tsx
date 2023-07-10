@@ -1,5 +1,6 @@
 'use client'
 import { signOut } from 'next-auth/react'
+import { useRouter } from 'next/navigation'
 import React from 'react'
 
 const leftNavigation = [
@@ -36,12 +37,17 @@ const leftNavigation = [
 ]
 
 export default function LeftNavigation() {
+    const router = useRouter()
+
     return (
         <>
             <div className="w-fit border-e-2 border-black/5 h-full flex justify-between flex-col gap-1 py-8 flex-1">
                 <div className="flex flex-col gap-2">
                     <img
-                        className="w-[24px] h-[24px] mx-8"
+                        onClick={() => {
+                            window.location.href = window.location.origin
+                        }}
+                        className="w-[24px] h-[24px] mx-8 cursor-pointer"
                         src="arrow-left.svg"
                     />
                     <label className="text-xl font-bold ms-8 py-4">

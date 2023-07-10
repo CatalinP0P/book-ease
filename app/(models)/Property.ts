@@ -10,6 +10,7 @@ import mongoose, {
 import Link from 'next/link'
 
 export interface PropertyProps {
+    _id: string
     userID: string
     title: string
     description: string

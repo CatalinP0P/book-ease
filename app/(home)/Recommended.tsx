@@ -19,7 +19,7 @@ export default async function Recommended({
     const properties = await fetchProperties()
 
     return (
-        <div className={'flex flex-col gap-3 ' + className}>
+        <div className={'flex flex-col gap-4 ' + className}>
             <label className="text-2xl font-semibold">
                 Hotels loved by guests
             </label>
