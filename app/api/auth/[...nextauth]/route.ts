@@ -1,6 +1,15 @@
 import { NextAuthOptions } from 'next-auth'
 import NextAuth from 'next-auth/next'
 import GoogleProvider from 'next-auth/providers/google'
+import type { DefaultSession } from 'next-auth'
+
+declare module 'next-auth' {
+    interface Session {
+        user: DefaultSession['user'] & {
+            id: string
+        }
+    }
+}
 
 export const authOptions: NextAuthOptions = {
     session: {
@@ -12,6 +21,22 @@ export const authOptions: NextAuthOptions = {
             clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
         }),
     ],
+    callbacks: {
+        jwt(params: any) {
+            if (params.user) {
+                params.token.id = params.user.id
+            }
+            return params.token
+        },
+
+        session({ session, token }) {
+            if (session.user) {
+                session.user.id = token.id as string
+            }
+
+            return session
+        },
+    },
     pages: {
         signIn: '/auth/sign-in',
     },

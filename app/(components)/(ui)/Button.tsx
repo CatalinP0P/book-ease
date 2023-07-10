@@ -1,12 +1,12 @@
 'use client'
-import React, { RefCallback, RefObject } from 'react'
+import React, { ButtonHTMLAttributes, RefCallback, RefObject } from 'react'
 
 interface ButtonProps {
     variant?: 'primary' | 'secondary'
-    onClick?: () => any
+    onClick?: (e?: React.MouseEvent<HTMLElement>) => any
     className?: string
     children?: React.ReactNode
-    type?: string
+    type?: "button" | "reset" | "submit" |  undefined
     ref?: RefObject<any>
 }
 
