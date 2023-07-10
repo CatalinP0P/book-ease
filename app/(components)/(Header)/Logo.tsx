@@ -6,7 +6,9 @@ export default function Logo() {
     const router = useRouter()
     return (
         <div
-            onClick={() => router.push('/')}
+            onClick={() => {
+                window.location.href = window.location.origin
+            }}
             className="text-2xl font-bold cursor-pointer"
         >
             BookEase

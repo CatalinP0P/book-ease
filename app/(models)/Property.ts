@@ -9,6 +9,18 @@ import mongoose, {
 } from 'mongoose'
 import Link from 'next/link'
 
+export interface PropertyModel {
+    _id: string,
+    userID: string
+    title: string
+    description: string
+    category: 'hotel' | 'motel' | 'apartment' | 'house'
+    imageURL: string
+    location: string
+    rooms: RoomsProps[]
+    reviews: ReviewProps[]
+}
+
 export interface PropertyProps {
     userID: string
     title: string

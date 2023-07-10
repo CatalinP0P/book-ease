@@ -1,20 +1,26 @@
 'use client'
 import React, { useEffect } from 'react'
-import Property, { RoomsProps } from '@/app/(models)/Property'
+import Property, { PropertyModel, RoomsProps } from '@/app/(models)/Property'
 import { PropertyProps } from '@/app/(models)/Property'
 import RatingLabel from './RatingLabel'
+import { useRouter } from 'next/navigation'
 
 export default function SmallPropertyCard({
     property,
 }: {
-    property: PropertyProps
+    property: PropertyModel
 }) {
+    const router = useRouter()
+
     useEffect(() => {
         console.log(property)
     }, [])
 
     return (
-        <div className="rounded-3xl shadow-xl bg-white overflow-hidden relative cursor-pointer h-full">
+        <div
+            className="rounded-3xl shadow-xl bg-white overflow-hidden relative cursor-pointer h-full"
+            onClick={() => router.push('/property/' + property._id)}
+        >
             <div className="relative h-[0] pb-[80%] w-full pointer-events-none">
                 <img
                     className="absolute left-0 top-0 w-full h-full object-cover"
@@ -26,7 +32,7 @@ export default function SmallPropertyCard({
                 />
             </div>
 
-            <div className="flex flex-col gap-1 px-4 py-6 pointer-events-none justify-between">
+            <div className="flex flex-col gap-4 px-4 py-6 pointer-events-none justify-between">
                 <label className="font-semibold">{property.title}</label>
                 <label className="text-black/25 text-xs">
                     {property.location}
