@@ -177,7 +177,10 @@ export default function AddForm() {
                 <div className="flex flex-row gap-3 w-full overflow-x-scroll overflow-y-hidden min-h-[250px] items-center border-t-2 border-b-2 border-gray-200">
                     {propertyInfo.rooms.map((room: RoomsProps) => {
                         return (
-                            <div className="min-w-[250px] w-[250px] h-[0] pb-[15%] rounded-xl overflow-hidden relative">
+                            <div
+                                className="min-w-[250px] w-[250px] h-[0] pb-[15%] rounded-xl overflow-hidden relative"
+                                key={room.imageURL + '' + room.capacity}
+                            >
                                 <img
                                     className="absolute left-0 top-0 w-full h-full z-[1]"
                                     src={room.imageURL}

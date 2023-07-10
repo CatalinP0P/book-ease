@@ -31,7 +31,9 @@ export default function SignIn() {
                 className="flex flex-col gap-4 max-w-[500px] w-full mx-auto p-8 border border-gray-200 rounded-3xl"
                 onSubmit={handleSubmit}
             >
-                <label className="text-4xl font-bold block text-center">Sign in</label>
+                <label className="text-4xl font-bold block text-center">
+                    Sign in
+                </label>
                 <div className="flex flex-col gap-1">
                     <label className="ms-2">Email</label>
                     <Input
