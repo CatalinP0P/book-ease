@@ -36,14 +36,13 @@ export default function SignButtons() {
             {/* Signed in buttons */}
             {session?.user && (
                 <>
-                    {/* <label className="px-4">
-                        Hi, <b>{session.user.name}</b>
-                    </label> */}
                     <Button onClick={() => signOut()}>Sign out</Button>
                     <ProfilePhoto
                         imageURL={session.user.image as string}
                         alt={session.user.name as string}
-                        onClick={() => {}}
+                        onClick={() => {
+                            router.push('/profile')
+                        }}
                     />
                 </>
             )}
