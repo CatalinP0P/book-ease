@@ -3,6 +3,7 @@ import React, { useEffect } from 'react'
 import { signOut, useSession } from 'next-auth/react'
 import Button from '../(ui)/Button'
 import { useRouter } from 'next/navigation'
+import ProfilePhoto from './ProfilePhoto'
 
 export default function SignButtons() {
     const { data: session } = useSession()
@@ -35,10 +36,15 @@ export default function SignButtons() {
             {/* Signed in buttons */}
             {session?.user && (
                 <>
-                    <label className="px-4">
+                    {/* <label className="px-4">
                         Hi, <b>{session.user.name}</b>
-                    </label>
+                    </label> */}
                     <Button onClick={() => signOut()}>Sign out</Button>
+                    <ProfilePhoto
+                        imageURL={session.user.image as string}
+                        alt={session.user.name as string}
+                        onClick={() => {}}
+                    />
                 </>
             )}
         </div>
