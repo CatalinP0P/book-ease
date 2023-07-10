@@ -4,13 +4,19 @@ import { getServerSession } from 'next-auth'
 import useProperties from '../(hooks)/useProperties'
 import { PropertyProps } from '../(models)/Property'
 
+const fetchProperties = async () => {
+    const data = await fetch(process.env.NEXTAUTH_URL + '/api/property', {
+        method: 'GET',
+    })
+    return await data.json()
+}
+
 export default async function Recommended({
     className,
 }: {
     className?: string
 }) {
-    const properties = await useProperties()
-    console.log(properties)
+    const properties = await fetchProperties()
 
     return (
         <div className={'flex flex-col gap-3 ' + className}>

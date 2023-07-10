@@ -37,6 +37,7 @@ export default function PopularDestinations({
                 {destinations.map((destination) => {
                     return (
                         <DestinationCard
+                            key={destination.imageURL}
                             title={destination.title}
                             imageURL={destination.imageURL}
                         />

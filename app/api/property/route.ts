@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic'
+
 import { NextRequest, NextResponse } from 'next/server'
 import Property from '@/app/(models)/Property'
 import startDb from '@/app/(lib)/mongo'
