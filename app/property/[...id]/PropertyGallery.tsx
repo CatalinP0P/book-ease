@@ -21,6 +21,7 @@ export default function PropertyGallery({ images }: { images: any[] }) {
                     {rightGallery.map((image) => {
                         return (
                             <img
+                                key={Math.random() * 1000}
                                 className="w-full h-fit rounded-3xl overflow-hidden"
                                 src={image}
                             />

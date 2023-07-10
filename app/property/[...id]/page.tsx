@@ -14,7 +14,7 @@ export default async function PropertyPage({ params }: { params: any }) {
 
     var images = [property.imageURL]
 
-    property.rooms.map((room) => {
+    property.rooms.forEach((room) => {
         images.push(room.imageURL)
     })
 
