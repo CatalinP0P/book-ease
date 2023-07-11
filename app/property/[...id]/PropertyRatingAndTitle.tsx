@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 
 const tabs = ['Overview', 'Policy']
 
-export default function PropertyDescription({
+export default function PropertyRatingAndTitle({
     property,
     className,
 }: {
@@ -14,36 +14,33 @@ export default function PropertyDescription({
     const [selectedTab, selectTab] = useState<string>('Overview')
 
     return (
-        <div className={className}>
-            <div className="flex flex-row justify-start items-center border-b-2 border-gray-300">
-                {tabs.map((tab: string) => {
-                    return (
-                        <label
-                            key={tab}
-                            className={
-                                'px-8 mb-[-2px] py-2 ' +
-                                (tab == selectedTab
-                                    ? 'border-b-2 border-blue-600 text-blue-600 font-semibold'
-                                    : ' text-black/50')
-                            }
-                        >
-                            {tab}
-                        </label>
-                    )
-                })}
+        <div className="flex flex-row w-full justify-between pt-8 items-start">
+            <div className="flex flex-col gap-2">
+                <label className="font-bold text-2xl">{property.title}</label>
+                <label className="text-black/50">{property.location}</label>
             </div>
-            {selectedTab == 'Overview' && (
-                <div className="flex flex-col md:flex-row py-8 items-top gap-8 h-full">
-                    <div className="flex flex-col gap-4">
-                        <label className="font-bold text-2xl">
-                            Property Overview
-                        </label>
-                        <p className="text-black/75">{property.description}</p>
-                    </div>
 
-                    <div className="w-full max-w-[400px] sm:min-w-[400px] sm:w-[400px] h-[250px] bg-black/10 rounded-3xl mx-auto" />
+            <div className="flex flex-row gap-4 items-center">
+                <div className="flex flex-col text-end">
+                    <label className="text-lg text-green-500 font-semibold">
+                        Excellent
+                    </label>
+                    <label className="text-black/50 text-xs">
+                        {property.reviews.length} Reviews
+                    </label>
                 </div>
-            )}
+                <label className="rounded-full bg-green-500/20 px-4 py-2 text-green-800/75 font-semibold">
+                    {(() => {
+                        if (!property.reviews?.length) return 'Not Available'
+                        var x = 0
+                        property.reviews.forEach((review) => {
+                            x += review.rating
+                        })
+
+                        return x / property.reviews.length
+                    })()}
+                </label>
+            </div>
         </div>
     )
 }

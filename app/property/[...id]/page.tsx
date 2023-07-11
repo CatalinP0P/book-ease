@@ -6,6 +6,7 @@ import mongoose from 'mongoose'
 import { redirect } from 'next/navigation'
 import axios from 'axios'
 import PropertyRatingAndTitle from './PropertyRatingAndTitle'
+import PropertyDescription from './PropertyDescription'
 
 const fetchProperty = async (id: string) => {
     const res = await axios.get(
@@ -31,6 +32,7 @@ export default async function PropertyPage({ params }: { params: any }) {
                 <img className="w-[24px] h-[24px] my-8" src="/arrow-left.svg" />
                 <PropertyGallery images={images} />
                 <PropertyRatingAndTitle property={property} className="pt-8" />
+                <PropertyDescription property={property} className="pt-8" />
             </Container>
         </div>
     )
