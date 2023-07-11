@@ -10,8 +10,6 @@ export default function SmallPropertyCard({
 }: {
     property: PropertyModel
 }) {
-    const router = useRouter()
-
     useEffect(() => {
         console.log(property)
     }, [])

@@ -5,8 +5,11 @@ import Property, { PropertyProps } from '@/app/(models)/Property'
 import mongoose from 'mongoose'
 
 const fetchProperty = async (id: string) => {
-    const res = await Property.findOne({ _id: new mongoose.Types.ObjectId(id) })
-    return res as PropertyProps
+    const res = await fetch(process.env.NEXTAUTH_URL + '/api/property/' + id, {
+        method: 'GET',
+    })
+    const json = JSON.parse(await res.json())
+    return json
 }
 
 export default async function PropertyPage({ params }: { params: any }) {
@@ -44,7 +47,7 @@ export default async function PropertyPage({ params }: { params: any }) {
                         </div>
                         <label className="rounded-full bg-green-500/20 px-4 py-2 text-green-800/75 font-semibold">
                             {(() => {
-                                if (!property.reviews.length)
+                                if (!property.reviews?.length)
                                     return 'Not Available'
                                 var x = 0
                                 property.reviews.forEach((review) => {
