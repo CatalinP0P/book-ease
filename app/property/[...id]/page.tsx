@@ -14,8 +14,8 @@ const fetchProperty = async (id: string) => {
 }
 
 export default async function PropertyPage({ params }: { params: any }) {
-    const property: PropertyProps = await fetchProperty(params.id[0])
-    console.log('PROPERTY', property)
+    // const property: PropertyProps = await fetchProperty(params.id[0])
+    // console.log('PROPERTY', property)
     // // if (!property) redirect('/')
 
     // var images = [property.imageURL]
@@ -69,6 +69,7 @@ export default async function PropertyPage({ params }: { params: any }) {
     return (
         <div>
             <label>Test {params.id[0]}</label>
+            <label>Server adress: {process.env.NEXTAUTH_URL}</label>
         </div>
     )
 }
