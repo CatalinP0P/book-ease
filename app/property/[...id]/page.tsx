@@ -14,8 +14,8 @@ const fetchProperty = async (id: string) => {
 }
 
 export default async function PropertyPage({ params }: { params: any }) {
-    // const property: PropertyProps = await fetchProperty(params.id[0])
-    // console.log('PROPERTY', property)
+    const property: PropertyProps = await fetchProperty(params.id[0])
+    console.log('PROPERTY', property)
     // // if (!property) redirect('/')
 
     // var images = [property.imageURL]
