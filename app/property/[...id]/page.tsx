@@ -6,17 +6,16 @@ import mongoose from 'mongoose'
 import { redirect } from 'next/navigation'
 import axios from 'axios'
 
-// const fetchProperty = async (id: string) => {
-//     const res = await axios.get(
-//         process.env.NEXTAUTH_URL + '/api/property/' + id
-//     )
-//     return JSON.parse(res.data)
-// }
+const fetchProperty = async (id: string) => {
+    const res = await axios.get(
+        process.env.NEXTAUTH_URL + '/api/property/' + id
+    )
+    return JSON.parse(res.data)
+}
 
 export default async function PropertyPage({ params }: { params: any }) {
-    // const property: PropertyProps = await fetchProperty(params.id[0])
-    // console.log(params.id[0])
-    // console.log('PROPERTY', property)
+    const property: PropertyProps = await fetchProperty(params.id[0])
+    console.log('PROPERTY', property)
     // // if (!property) redirect('/')
 
     // var images = [property.imageURL]
