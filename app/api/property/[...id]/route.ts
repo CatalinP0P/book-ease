@@ -1,4 +1,5 @@
-import Property from '@/app/(models)/Property'
+import startDb from '@/app/(lib)/mongo'
+import Property, { PropertyModel } from '@/app/(models)/Property'
 import mongoose from 'mongoose'
 import { ErrorProps } from 'next/error'
 import { NextRequest, NextResponse } from 'next/server'
@@ -8,8 +9,9 @@ export async function GET(
     { params }: { params: { id: string } }
 ) {
     try {
+        startDb()
         params.id = params.id[0]
-        const property = await Property.findOne({
+        const property: any = await Property.findOne({
             _id: new mongoose.Types.ObjectId(params.id),
         })
         console.log('Property found, ', property)

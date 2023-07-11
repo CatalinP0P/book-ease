@@ -3,17 +3,23 @@ import React from 'react'
 import PropertyGallery from './PropertyGallery'
 import Property, { PropertyProps } from '@/app/(models)/Property'
 import mongoose from 'mongoose'
+import { redirect } from 'next/navigation'
 
 const fetchProperty = async (id: string) => {
     const res = await fetch(process.env.NEXTAUTH_URL + '/api/property/' + id, {
         method: 'GET',
     })
-    const json = JSON.parse(await res.json())
-    return json
+    if (res.status != 200) return
+
+    const data = await res.json()
+    return JSON.parse(data)
 }
 
 export default async function PropertyPage({ params }: { params: any }) {
     const property: PropertyProps = await fetchProperty(params.id[0])
+    console.log(params.id[0])
+    console.log('PROPERTY', property)
+    // if (!property) redirect('/')
 
     var images = [property.imageURL]
 
