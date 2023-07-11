@@ -4,15 +4,13 @@ import PropertyGallery from './PropertyGallery'
 import Property, { PropertyProps } from '@/app/(models)/Property'
 import mongoose from 'mongoose'
 import { redirect } from 'next/navigation'
+import axios from 'axios'
 
 const fetchProperty = async (id: string) => {
-    const res = await fetch(process.env.NEXTAUTH_URL + '/api/property/' + id, {
-        method: 'GET',
-    })
-    if (res.status != 200) return
-
-    const data = await res.json()
-    return JSON.parse(data)
+    const res = await axios.get(
+        process.env.NEXTAUTH_URL + '/api/property/' + id
+    )
+    return JSON.parse(res.data)
 }
 
 export default async function PropertyPage({ params }: { params: any }) {
