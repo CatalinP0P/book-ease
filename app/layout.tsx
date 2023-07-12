@@ -3,6 +3,8 @@ import Header from './(components)/(Header)/Header'
 import AuthProvider from './(context)/AuthProvider'
 import './globals.css'
 import { Open_Sans } from 'next/font/google'
+import PopupProvider from './(context)/PopupContext'
+import ReviewPopup from './(components)/(Popups)/ReviewPopup'
 
 const openSans = Open_Sans({ subsets: ['vietnamese'] })
 
@@ -25,11 +27,13 @@ export default function RootLayout({
                         openSans.className + ' flex flex-col min-h-screen'
                     }
                 >
-                    <Header />
-                    <div className="grow relative flex flex-col">
-                        {children}
-                    </div>
-                    <Footer />
+                    <PopupProvider>
+                        <Header />
+                        <div className="grow relative flex flex-col">
+                            {children}
+                        </div>
+                        <Footer />
+                    </PopupProvider>
                 </body>
             </html>
         </AuthProvider>
