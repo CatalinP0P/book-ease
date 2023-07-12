@@ -5,8 +5,11 @@ import startDb from '@/app/(lib)/mongo'
 
 export async function POST(req: NextRequest) {
     startDb()
-
     const { propertyID, userID, rating, text } = await req.json()
+
+    if ( !text )
+    return NextResponse.json("You must add text to your review", {status: 400})
+
     try {
         if (!propertyID || !userID || !text || !rating) {
             return NextResponse.json('All fields must be included', {
