@@ -22,7 +22,8 @@ export default function ReviewPopup({ propertyID }: { propertyID: string }) {
     const sendReview = async () => {
         if (loading) return
         if (!session?.user.id) {
-            router.push('/auth/sign-in')
+            return (window.location.href =
+                window.location.origin + '/auth/sign-in')
         }
         setLoading(true)
         const url = window.location.origin + '/api/property/reviews'
