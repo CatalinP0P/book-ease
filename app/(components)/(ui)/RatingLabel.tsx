@@ -10,10 +10,10 @@ export default function RatingLabel({
     return (
         <div
             className={
-                'py-1 px-3 bg-green-600/50 text-white rounded-full ' + className
+                'py-1 px-6 bg-green-600/50 text-white rounded-full ' + className
             }
         >
-            {rating.toFixed(0)}
+            {rating.toFixed(0)} / 5
         </div>
     )
 }

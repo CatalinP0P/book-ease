@@ -7,6 +7,8 @@ import { redirect } from 'next/navigation'
 import axios from 'axios'
 import PropertyRatingAndTitle from './PropertyRatingAndTitle'
 import PropertyDescription from './PropertyDescription'
+import PropertyRooms from './PropertyRooms'
+import PropertyReviews from './PropertyReviews'
 
 const fetchProperty = async (id: string) => {
     const res = await axios.get(
@@ -33,6 +35,16 @@ export default async function PropertyPage({ params }: { params: any }) {
                 <PropertyGallery images={images} />
                 <PropertyRatingAndTitle property={property} className="pt-8" />
                 <PropertyDescription property={property} className="pt-8" />
+            </Container>
+            <div className="py-8 bg-black/5">
+                <Container>
+                    <label className="ms-2 text-2xl font-bold">Rooms</label>
+                    <PropertyRooms rooms={property.rooms} className="pt-4" />
+                </Container>
+            </div>
+
+            <Container className="py-8">
+                <PropertyReviews reviews={property.reviews} />
             </Container>
         </div>
     )

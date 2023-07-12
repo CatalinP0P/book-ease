@@ -3,6 +3,7 @@ import React, { useEffect } from 'react'
 import Property, { PropertyModel, RoomsProps } from '@/app/(models)/Property'
 import { PropertyProps } from '@/app/(models)/Property'
 import RatingLabel from './RatingLabel'
+import getPropertyRating from '@/app/utils/getPropertyRatings'
 import { useRouter } from 'next/navigation'
 
 export default function SmallPropertyCard({
@@ -29,7 +30,7 @@ export default function SmallPropertyCard({
                 />
                 <RatingLabel
                     className="absolute top-0 left-0 m-2"
-                    rating={95}
+                    rating={getPropertyRating(property.reviews)}
                 />
             </div>
 
