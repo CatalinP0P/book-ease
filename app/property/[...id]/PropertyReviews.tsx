@@ -27,7 +27,10 @@ export default function PropertyReviews({
 
             {reviews.map((review) => {
                 return (
-                    <label className="py-8 border-t-2 border-black/5">
+                    <label
+                        key={Math.random() * 1000}
+                        className="py-8 border-t-2 border-black/5"
+                    >
                         {review.text}
                     </label>
                 )
