@@ -1,15 +1,22 @@
+'use client'
 import { ReviewProps } from '@/app/(models)/Property'
 import React, { useEffect } from 'react'
 import getPropertyRating from '@/app/utils/getPropertyRatings'
 import Button from '@/app/(components)/(ui)/Button'
+import ReviewPopup from '@/app/(components)/(Popups)/ReviewPopup'
+import { usePopup } from '../../(context)/PopupContext'
 
 export default function PropertyReviews({
+    propertyID,
     reviews,
     className,
 }: {
+    propertyID: string
     reviews: ReviewProps[]
     className?: string
 }) {
+    const popupContext = usePopup()
+
     return (
         <div className={'flex flex-col gap-2 ' + className}>
             <div className="flex flex-row justify-between items-start">
@@ -20,7 +27,11 @@ export default function PropertyReviews({
                     </label>
                 </div>
 
-                <Button variant="secondary" className="px-14">
+                <Button
+                    variant="secondary"
+                    className="px-14"
+                    onClick={() => popupContext.toggleReviewPopup()}
+                >
                     Post a review
                 </Button>
             </div>
@@ -35,6 +46,7 @@ export default function PropertyReviews({
                     </label>
                 )
             })}
+            <ReviewPopup propertyID={propertyID} />
         </div>
     )
 }

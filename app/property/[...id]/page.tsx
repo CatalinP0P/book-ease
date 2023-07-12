@@ -44,7 +44,10 @@ export default async function PropertyPage({ params }: { params: any }) {
             </div>
 
             <Container className="py-8">
-                <PropertyReviews reviews={property.reviews} />
+                <PropertyReviews
+                    reviews={property.reviews}
+                    propertyID={property._id}
+                />
             </Container>
         </div>
     )
