@@ -39,7 +39,7 @@ export default function PropertyReviews({
 
             {reviews.map((review: ReviewModel) => {
                 return (
-                    <div key={review._id as string}>
+                    <div key={Math.random() * 1000}>
                         <ReviewCard review={review} />
                     </div>
                 )
