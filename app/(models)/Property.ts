@@ -10,7 +10,7 @@ import mongoose, {
 import Link from 'next/link'
 
 export interface PropertyModel {
-    _id: string,
+    _id: string
     userID: string
     title: string
     description: string
@@ -36,6 +36,13 @@ export interface RoomsProps {
     price: number
     imageURL: string
     capacity: number
+}
+
+export interface ReviewModel {
+    _id: string
+    userID: string
+    rating: 1 | 2 | 3 | 4 | 5
+    text?: string
 }
 
 export interface ReviewProps {
