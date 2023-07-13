@@ -13,7 +13,7 @@ export default function PropertyReviews({
     className,
 }: {
     propertyID: string
-    reviews: ReviewModel[]
+    reviews: ReviewProps[]
     className?: string
 }) {
     const popupContext = usePopup()
@@ -37,7 +37,7 @@ export default function PropertyReviews({
                 </Button>
             </div>
 
-            {reviews.map((review: ReviewModel) => {
+            {reviews.map((review: ReviewProps) => {
                 return (
                     <div key={Math.random() * 1000}>
                         <ReviewCard review={review} />
