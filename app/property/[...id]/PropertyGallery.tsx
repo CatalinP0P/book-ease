@@ -15,7 +15,7 @@ export default function PropertyGallery({ images }: { images: any[] }) {
     return (
         <div
             className={
-                'overflow-hidden max-h-[500px] left-0 top-0 w-full h-full gap-4 grid grid-cols-' +
+                'overflow-hidden max-h-[500px] left-0 top-0 w-full h-full gap-2 md:gap-4 grid grid-cols-' +
                 cols
             }
         >
@@ -26,7 +26,7 @@ export default function PropertyGallery({ images }: { images: any[] }) {
             {cols == 2 && (
                 <div
                     className={
-                        'grid gap-4 grid-rows-' +
+                        'grid gap-2 md:gap-4 grid-rows-' +
                         smallRows +
                         ' grid-cols-' +
                         smallCols
