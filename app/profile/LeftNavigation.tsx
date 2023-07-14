@@ -5,34 +5,34 @@ import React from 'react'
 
 const leftNavigation = [
     {
-        svg: 'person-fill.svg',
+        svg: '/person-fill.svg',
         text: 'Personal Details',
-        link: '/',
+        link: '/profile/personal-details',
     },
     {
-        svg: 'wallet.svg',
+        svg: '/wallet.svg',
         text: 'Payment Information',
-        link: '/',
+        link: '/profile/payment-information',
     },
     {
-        svg: 'shield-halved.svg',
+        svg: '/shield-halved.svg',
         text: 'Safety',
-        link: '/',
+        link: '/profile/safety',
     },
     {
-        svg: 'gear.svg',
+        svg: '/gear.svg',
         text: 'Preferences',
-        link: '/',
+        link: '/profile/prefereneces',
     },
     {
-        svg: 'bell.svg',
+        svg: '/bell.svg',
         text: 'Notifications',
-        link: '/',
+        link: '/profile/notifications',
     },
     {
-        svg: 'person-plus-fill.svg',
+        svg: '/person-plus-fill.svg',
         text: 'Friends',
-        link: '/',
+        link: '/profile/friends',
     },
 ]
 
@@ -41,14 +41,14 @@ export default function LeftNavigation() {
 
     return (
         <>
-            <div className="w-fit border-e-2 border-black/5 h-full flex justify-between flex-col gap-1 py-8 flex-1">
+            <div className="w-fit border-e-2 lg:border-black/5 h-full flex justify-between flex-col gap-1 py-8 flex-1">
                 <div className="flex flex-col gap-2">
                     <img
                         onClick={() => {
                             window.location.href = window.location.origin
                         }}
-                        className="w-[24px] h-[24px] mx-8 cursor-pointer"
-                        src="arrow-left.svg"
+                        className="block w-[24px] h-[24px] mx-8 cursor-pointer"
+                        src="/arrow-left.svg"
                     />
                     <label className="text-xl font-bold ms-8 py-4">
                         Profile Settings
@@ -58,6 +58,7 @@ export default function LeftNavigation() {
                             return (
                                 <label
                                     key={x.svg as string}
+                                    onClick={() => router.push(x.link)}
                                     className="flex flex-row items-center gap-4 w-full justify-start ps-8 pe-16 py-2 whitespace-nowrap hover:bg-black/5 cursor-pointer"
                                 >
                                     <img
@@ -76,7 +77,7 @@ export default function LeftNavigation() {
                 >
                     <img
                         className="w-[20px] h-[20px]"
-                        src={'exit-to-app.svg'}
+                        src={'/exit-to-app.svg'}
                     />
                     Log out
                 </label>

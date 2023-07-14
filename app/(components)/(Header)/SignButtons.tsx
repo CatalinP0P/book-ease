@@ -36,7 +36,6 @@ export default function SignButtons() {
             {/* Signed in buttons */}
             {session?.user && (
                 <>
-                    <Button onClick={() => signOut()}>Sign out</Button>
                     <ProfilePhoto
                         imageURL={session.user.image as string}
                         alt={session.user.name as string}

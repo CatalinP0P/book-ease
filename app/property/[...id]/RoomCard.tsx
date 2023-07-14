@@ -4,7 +4,7 @@ import React from 'react'
 
 export default function RoomCard({ room }: { room: RoomsProps }) {
     return (
-        <div className="w-[400px] h-fit p-2 rounded-3xl overflow-hidden bg-white shadow-md">
+        <div className="w-[300px] md:w-[400px] h-fit p-2 rounded-3xl overflow-hidden bg-white shadow-md">
             <div className="rounded-3xl overflow-hidden relative w-full h-0 pb-[60%]">
                 <img
                     className="absolute left-0 top-0 w-full h-full object-cover"

@@ -47,7 +47,7 @@ export default function ReviewPopup({ propertyID }: { propertyID: string }) {
     return (
         <div
             className={
-                'fixed z-[100] left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] px-6 py-8 pointer-events-auto bg-white rounded-3xl w-full max-w-[600px] ' +
+                'fixed z-[100] left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] px-6 py-8 pointer-events-auto bg-white rounded-3xl w-[95%] max-w-[600px] ' +
                 (reviewPopup ? ' ' : ' hidden pointer-events-none')
             }
         >

@@ -22,8 +22,10 @@ export default function PropertyReviews({
         <div className={'flex flex-col gap-2 ' + className}>
             <div className="flex flex-row justify-between items-start">
                 <div className="flex flex-col gap-4">
-                    <label className="text-2xl font-bold">Reviews</label>
-                    <label className="text-4xl text-blue-600 mb-8">
+                    <label className="text-lg md:text-2xl font-bold">
+                        Reviews
+                    </label>
+                    <label className="text-2xl md:text-4xl text-blue-600 mb-8">
                         {getPropertyRating(reviews)}/5
                     </label>
                 </div>
