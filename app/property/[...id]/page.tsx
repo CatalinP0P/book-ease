@@ -39,7 +39,11 @@ export default async function PropertyPage({ params }: { params: any }) {
             <div className="py-8 bg-black/5">
                 <Container>
                     <label className="ms-2 text-2xl font-bold">Rooms</label>
-                    <PropertyRooms rooms={property.rooms} className="pt-4" />
+                    <PropertyRooms
+                        propertyId={property._id}
+                        rooms={property.rooms}
+                        className="pt-4"
+                    />
                 </Container>
             </div>
 

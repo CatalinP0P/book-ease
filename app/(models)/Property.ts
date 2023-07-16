@@ -8,6 +8,7 @@ import mongoose, {
     Mongoose,
 } from 'mongoose'
 import Link from 'next/link'
+import { isNumericLiteral } from 'typescript'
 
 export interface PropertyModel {
     _id: string
@@ -17,7 +18,7 @@ export interface PropertyModel {
     category: 'hotel' | 'motel' | 'apartment' | 'house'
     imageURL: string
     location: string
-    rooms: RoomsProps[]
+    rooms: RoomModel[]
     reviews: ReviewProps[]
 }
 
@@ -30,6 +31,10 @@ export interface PropertyProps {
     location: string
     rooms: RoomsProps[]
     reviews: ReviewProps[]
+}
+
+export interface RoomModel extends RoomsProps {
+    _id: string
 }
 
 export interface RoomsProps {
