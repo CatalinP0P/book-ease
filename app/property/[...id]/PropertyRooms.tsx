@@ -1,13 +1,15 @@
-import { RoomsProps } from '@/app/(models)/Property'
+import { RoomModel, RoomsProps } from '@/app/(models)/Property'
 import React from 'react'
 import RoomCard from './RoomCard'
 
 export default function PropertyRooms({
     rooms,
     className,
+    propertyId,
 }: {
-    rooms: RoomsProps[]
+    rooms: RoomModel[]
     className?: string
+    propertyId: string
 }) {
     return (
         <div
@@ -16,10 +18,10 @@ export default function PropertyRooms({
                 className
             }
         >
-            {rooms.map((room: RoomsProps) => {
+            {rooms.map((room: RoomModel) => {
                 return (
                     <div key={room.imageURL + ' ' + room.price}>
-                        <RoomCard room={room} />
+                        <RoomCard room={room} propertyId={propertyId} />
                     </div>
                 )
             })}
